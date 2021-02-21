@@ -1,0 +1,8 @@
+* {
+    text-align: center;
+}
+
+.column {
+    width: 33.33%;
+    float: left;
+}
