@@ -42,6 +42,7 @@ function clickHandler(event) {
     } else {
         if (event.target.id !== 'imagesSection') {
             for (let i = 0; i < Product.all.length; i++) {
+
                 if (Product.all[i].title === event.target.alt) {
                     Product.all[i].clicks++;
                 }
@@ -86,6 +87,7 @@ function Product(title) {
     this.timesViewed = 0;
     this.clicks = 0;
     Product.all.push(this);
+    localStorage.setItem("products", JSON.stringify(Product.all));
 }
 
 function render() {
@@ -115,3 +117,7 @@ for (let i = 0; i < titles.length; i++) {
 }
 
 imagesSection.addEventListener('click', clickHandler);
+
+
+Product.all = JSON.parse(localStorage.getItem("products"));
+console.log(Product.all);
