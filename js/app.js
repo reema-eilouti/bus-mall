@@ -47,6 +47,7 @@ function clickHandler(event) {
                     Product.all[i].clicks++;
                 }
             }
+            console.log(Product.all);
             render();
         }
     }
@@ -114,10 +115,7 @@ Product.all = [];
 
 for (let i = 0; i < titles.length; i++) {
     new Product(titles[i]);
+    Product.all = JSON.parse(localStorage.getItem("products"));
 }
 
 imagesSection.addEventListener('click', clickHandler);
-
-
-Product.all = JSON.parse(localStorage.getItem("products"));
-console.log(Product.all);
